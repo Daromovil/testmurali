@@ -1,0 +1,357 @@
+<div class="hidden sm:visible p-5 flex flex-column xl:border-b border-gray-300 text-lg bg-gray-900 text-white">
+    <div class="w-1/5  text-center">
+        <a href="http://localhost:59225/home/mantra#" class="hover:underline cursor-pointer text-white">
+            &lt;&lt;
+        </a>
+    </div>
+    <div class="w-3/5 text-center xl:border-l xl:border-r">
+
+        <span>मन्त्र ४४ (Mantra 44 )</span>
+    </div>
+    <div class="w-1/5 text-center">
+        <a href="http://localhost:59225/home/mantra#" class="hover:underline cursor-pointer text-white"> &gt;&gt; </a>
+    </div>
+</div>
+<form class="w-full" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div id="mantra" class="flex p-5 pr-5 border-b border-gray-300">
+        <div class="md:w-1/3">
+            <div class="pt-5 pb-5 border-r border-gray-300">
+                <div class="md:flex">
+                    <div class="pt-2 md:w-1/2" i18n="@@vedaCode">
+                        Veda Code
+                    </div>
+                    <select formControlName="vedaCode"
+                        class="md:w-1/2 mr-3 mb-2 block appearance-none w-full bg-grey-200 border border-grey-200 text-grey-darker py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-grey"
+                        id="grid-state" [ngClass]="{ 'is-invalid': submitted && f.title.errors }">
+                        <option value='rigveda'>Rig</option>
+                        <option value='yajurveda'>Yajur</option>
+                        <option value='samaveda'>Sama</option>
+                        <option value='atharvaveda'>Atharva</option>
+                    </select>
+                    <div *ngIf="submitted && f.veda.errors" class="invalid-feedback">
+                        <div *ngIf="f.vedaCode.errors.required">Veda is required</div>
+                    </div>
+                </div>
+                <div class="md:flex">
+                    <div class="pt-2 md:w-1/2" i18n="@@mandal">
+                        Mandal
+                    </div>
+                    <input formControlName="mandal"
+                        class="md:w-1/2 mr-3 mb-2 appearance-none block w-full bg-grey-200 text-grey-darker border border-grey-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-grey"
+                        id="grid-city" type="text">
+                </div>
+                <div class="md:flex">
+                    <div i18n="@@sukta" class="md:w-1/2 pt-2">
+                        Sukta
+                    </div>
+                    <input formControlName="sukta"
+                        class="md:w-1/2 mr-3 mb-2 appearance-none block w-full bg-grey-200 text-grey-darker border border-grey-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-grey"
+                        id="grid-zip" type="text">
+                </div>
+                <div class="md:flex">
+                    <div class="md:w-1/2 pt-2" i18n="@@anuvaka">
+                        Anuvaka
+                    </div>
+                    <input formControlName="anuvaka"
+                        class="md:w-1/2 mr-3 mb-2 appearance-none block w-full bg-grey-200 text-grey-darker border border-grey-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-grey"
+                        id="grid-zip" type="text">
+                </div>
+                <div class="md:flex">
+                    <div class="md:w-1/2 pt-2" i18n="@@devata">
+                        Devata
+                    </div>
+                    <input formControlName="devatha"
+                        class="md:w-1/2 mr-3 mb-2 appearance-none block w-full bg-grey-200 text-grey-darker border border-grey-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-grey"
+                        id="grid-city" type="text">
+                </div>
+                <div class="md:flex">
+                    <div class="pt-2 md:w-1/2" i18n="@@rushi">
+                        Rushi
+                    </div>
+                    <input formControlName="rishi"
+                        class="md:w-1/2 mr-3 mb-2 appearance-none block w-full bg-grey-200 text-grey-darker border border-grey-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-grey"
+                        id="grid-zip" type="text">
+                </div>
+                <div class="md:flex">
+                    <div class="pt-2 md:w-1/2" i18n="@@chandas">
+                        Chandas
+                    </div>
+                    <input formControlName="chandas"
+                        class="md:w-1/2 mr-3 mb-2 appearance-none block w-full bg-grey-200 text-grey-darker border border-grey-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-grey"
+                        id="grid-zip" type="text">
+                </div>
+                <div class="md:flex">
+                    <div class="pt-2 md:w-1/2" i18n="@@swara">
+                        Swara
+                    </div>
+                    <input formControlName="swar"
+                        class="md:w-1/2 mr-3 mb-2 appearance-none block w-full bg-grey-200 text-grey-darker border border-grey-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-grey"
+                        id="grid-city" type="text">
+                </div>
+
+            </div>
+        </div>
+        <div class="md:w-2/3 pt-10 leading-10 text-center align-text-middle text-2xl text-red-600">
+            <label i18n="@@mantra" class=" block uppercase tracking-wide text-gray-700 text-2xl font-light mb-1"
+                for="grid-first-name">
+                Mantra : {{ mantra.seqNo}}
+            </label>
+            <textarea id="MantraName" name="MantraName" formControlName="mantra" rows="8"
+                class="ml-5 p-10 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-5xl border-gray-300 rounded-md"
+                [ngClass]="{ 'is-invalid': submitted && f.Mantra.errors }"></textarea>
+
+        </div>
+    </div>
+
+    <div class="px-6">
+
+        <div class="justify-between container px-6 h-16 flex items-center lg:items-stretch mx-auto xl:border-b">
+            <div class="flex items-center">
+                <ul class="xl:flex items-center text-center h-full">
+                    <li
+                        class="hover:underline cursor-pointer h-full flex items-center text-indigo-600 mr-10 tracking-normal">
+                        <a href="http://localhost:59225/home/mantra#wordbyword">प्रतिपदार्ध <br> (Word-by-Word)</a>
+                    </li>
+                    <li
+                        class="hover:underline cursor-pointer h-full flex items-center text-indigo-600 mr-10 tracking-normal">
+                        <a href="http://localhost:59225/home/mantra#meaning">अर्ध <br>(Meaning)</a>
+                    </li>
+                    <li
+                        class="hover:underline cursor-pointer h-full flex items-center text-indigo-600 mr-10 tracking-normal">
+                        <a href="http://localhost:59225/home/mantra#detailed">सविस्तर <br>(Detailed)</a>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="h-full xl:flex hidden items-center justify-end pr-10">
+                <div class="h-full flex items-center">
+                    <div class="w-full h-full flex">
+
+                        <div class="w-16 xl:w-48 h-full flex items-center justify-center xl:border-l cursor-pointer">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-volume"
+                                width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50"
+                                fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <title>Audio</title>
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M15 8a5 5 0 0 1 0 8"></path>
+                                <path d="M17.7 5a9 9 0 0 1 0 14"></path>
+                                <path
+                                    d="M6 15h-2a1 1 0 0 1 -1 -1v-4a1 1 0 0 1 1 -1h2l3.5 -4.5a0.8 .8 0 0 1 1.5 .5v14a0.8 .8 0 0 1 -1.5 .5l-3.5 -4.5">
+                                </path>
+                            </svg>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-bookmark"
+                                width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50"
+                                fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <title>Bookmark</title>
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M9 4h6a2 2 0 0 1 2 2v14l-5 -3l-5 3v-14a2 2 0 0 1 2 -2"></path>
+                            </svg>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-bulb" width="32"
+                                height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <title>Enlightenment</title>
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M3 12h1m8 -9v1m8 8h1m-15.4 -6.4l.7 .7m12.1 -.7l-.7 .7"></path>
+                                <path d="M9 16a5 5 0 1 1 6 0a3.5 3.5 0 0 0 -1 3a2 2 0 0 1 -4 0a3.5 3.5 0 0 0 -1 -3">
+                                </path>
+                                <line x1="9.7" y1="17" x2="14.3" y2="17"></line>
+                            </svg>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-star" width="32"
+                                height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <title>Favorite</title>
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path
+                                    d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z">
+                                </path>
+                            </svg>
+                        </div>
+
+                        <div class="w-16 xl:w-48 h-full flex items-center justify-center xl:border-l cursor-pointer">
+                            <input type="checkbox" for="sticky" class="text-indigo-600 h-6 w-6"> &nbsp;&nbsp;
+                            <span id="sticky">Sticky Header</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="mx-auto px-6 pt-10">
+        <div class="p-5 pt-0">
+            <div id="wordbyword" class="flex items-center">
+                <div data-menu="" class="flex flex-1 cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" aria-label="Hide"
+                        class="hidden icon icon-tabler icon-tabler-chevron-up" width="28" height="28"
+                        viewBox="0 0 24 24" stroke-width="1.5" stroke="#718096" fill="none" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z"></path>
+                        <polyline points="6 15 12 9 18 15"></polyline>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" aria-label="Show"
+                        class="icon icon-tabler icon-tabler-chevron-down" width="28" height="28" viewBox="0 0 24 24"
+                        stroke-width="1.5" stroke="#718096" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z"></path>
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                    <h1 i18n="@@wordByWordMearning" class="text-lg text-indigo-600 font-semibold ml-3">
+                        Word-by-Word Meaning
+                    </h1>
+                </div>
+                <div class="cursor-pointer flex-fill float-right pl-5 pr-5">
+                    <a href="http://localhost:59225/home/mantra#mantra">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-up-circle"
+                            width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <title>Back to Mantra</title>
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <circle cx="12" cy="12" r="9"></circle>
+                            <line x1="12" y1="8" x2="8" y2="12"></line>
+                            <line x1="12" y1="8" x2="12" y2="16"></line>
+                            <line x1="16" y1="12" x2="12" y2="8"></line>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="flex flex-wrap -mx-3 mb-2">
+                <div class='pr-4'>
+                    <button type='button' (click)='addPathaArtha()' [disabled]="loading"
+                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ">
+                        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                        Add Pada Artha
+                    </button>
+                </div>
+
+            </div>
+            <ul class="pt-6">
+
+                <li formArrayName="padaArthas" *ngFor="let item of form.get('padaArthas')['controls']; let i = index;"
+                    class="md:flex justify-between items-center  pt-5 pb-5 border-b border-gray-300 hover:bg-gray-200">
+                    <div [formGroupName]="i" class="flex w-full">
+                        <div class="flex items-center text-gray-400 w-full md:w-1/2">
+                            <input formControlName="artha"
+                                class="appearance-none block w-full bg-grey-200 text-grey-darker border border-grey-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-grey"
+                                id="grid-city" type="text">
+                        </div>
+                        <div class='pr-4'>
+                            <button type='button' (click)='deletePadaArtha(i)' [disabled]="loading"
+                                class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded ">
+                                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                                Delete
+                            </button>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+
+        <div id="meaning" class="p-5">
+            <div class="flex items-center">
+                <div data-menu="" class="flex flex-1 cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" aria-label="Hide"
+                        class="hidden icon icon-tabler icon-tabler-chevron-up" width="28" height="28"
+                        viewBox="0 0 24 24" stroke-width="1.5" stroke="#718096" fill="none" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z"></path>
+                        <polyline points="6 15 12 9 18 15"></polyline>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" aria-label="Show"
+                        class="icon icon-tabler icon-tabler-chevron-down" width="28" height="28" viewBox="0 0 24 24"
+                        stroke-width="1.5" stroke="#718096" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z"></path>
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                    <h1 i18n="@@detailedArtha" class="text-lg text-indigo-600 font-semibold ml-3">Meaning</h1>
+                </div>
+
+                <div class="cursor-pointer flex-fill float-right pl-5 pr-5">
+                    <a href="http://localhost:59225/home/mantra#mantra">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-up-circle"
+                            width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <title>Back to Mantra</title>
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <circle cx="12" cy="12" r="9"></circle>
+                            <line x1="12" y1="8" x2="8" y2="12"></line>
+                            <line x1="12" y1="8" x2="12" y2="16"></line>
+                            <line x1="16" y1="12" x2="12" y2="8"></line>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <ul>
+                <li>
+                    <textarea id="mantraSummary" name="mantraSummary" formControlName="summary" rows="4"
+                        class="ml-5 p-10 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-2xl border-gray-300 rounded-md"
+                        [ngClass]="{ 'is-invalid': submitted && f.Mantra.errors }"></textarea>
+                </li>
+            </ul>
+        </div>
+
+
+        <div id="detailed" class="p-5">
+            <div class="flex items-center">
+                <div data-menu="" class="flex flex-1 cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" aria-label="Hide"
+                        class="hidden icon icon-tabler icon-tabler-chevron-up" width="28" height="28"
+                        viewBox="0 0 24 24" stroke-width="1.5" stroke="#718096" fill="none" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z"></path>
+                        <polyline points="6 15 12 9 18 15"></polyline>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" aria-label="Show"
+                        class="icon icon-tabler icon-tabler-chevron-down" width="28" height="28" viewBox="0 0 24 24"
+                        stroke-width="1.5" stroke="#718096" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z"></path>
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                    <h1 i18n="@@mantraSummary" class="text-lg text-indigo-600 font-semibold ml-3">Detailed Meaning</h1>
+                </div>
+
+                <div data-menu="" class="cursor-pointer flex-fill float-right pl-5 pr-5">
+                    <a href="http://localhost:59225/home/mantra#mantra">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-up-circle"
+                            width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <title>Back to Mantra</title>
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <circle cx="12" cy="12" r="9"></circle>
+                            <line x1="12" y1="8" x2="8" y2="12"></line>
+                            <line x1="12" y1="8" x2="12" y2="16"></line>
+                            <line x1="16" y1="12" x2="12" y2="8"></line>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <ul>
+                <li>
+                    <textarea id="detailedArtha" name="detailedArtha" formControlName="detailedArtha" rows="6"
+                        class="ml-5 p-10 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-2xl border-gray-300 rounded-md"
+                        [ngClass]="{ 'is-invalid': submitted && f.Mantra.errors }"></textarea>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+    <div class="flex flex-wrap -mx-3 mb-2">
+        <div class='pr-4'>
+            <button [disabled]="loading" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                Save
+            </button>
+        </div>
+        <a routerLink="/mantras-list"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ">Cancel</a>
+    </div>
+</form>
+<script
+    src="./Yajur Veda (यजुर्वेदः) _ Kanda 33 (काण्ड ३३) _ Mantra 44 (मन्त्र ४४) - Vedas Wiki_files/vedas_wiki.js.download"></script>

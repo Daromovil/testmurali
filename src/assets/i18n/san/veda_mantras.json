@@ -1,0 +1,53 @@
+{
+    "menu": {
+        "title": "Vedas WIKI",
+        "home": "सूची:",
+        "vedas": "वेद:",
+        "applications": "प्रयुक्तिः",
+        "courses": "आगम:",
+        "projects": "प्रकल्प:",
+        "signout": "Sign Out"
+    },
+    "headers": {
+        "veda": "वेदः",
+        "rigVeda": "ऋग्वेदः",
+        "yajurVeda": "Yajur-Veda",
+        "samaVeda": "Sama-Veda",
+        "adharvaVeda": "Athurva-Veda"
+    },
+    "labels": {
+        "totalMantras": "मन्त्र गणनां",
+        "select": "चिनोति",
+        "mandal": "मण्डलम्",
+        "sukta": "सूक्तम्",
+        "kanda": "Kanda",
+        "adhyaya": "Adhyaya",
+        "prapataka": "Prapataka",
+        "uttaraArchika": "Uttara-Archika",
+        "purvaArchia": "Purva-Archika",
+        "mantra": "मन्त्रम्",
+        "rishi": "ऋषिः",
+        "devatha": "देवता",
+        "swar": " स्वरः",
+        "chandas": "छन्दः",
+        "prathiPada": "पदविभागः",
+        "artha": "अर्ध",
+        "detailedArtha": "सविस्तर अर्ध",
+        "audio": "Audio",
+        "editMantra": "Edit Mantra",
+        "quickViewMantra": "Quick View",
+        "detailedViewMantra": "Detailed View",
+        "search": "शोधन",
+        "keyword": "ఒక్కొక్క मुख्यपद",
+        "space_separated": "ఒక్కొక్క పదము మధ్యలో ఖాళీ ఉంచుడు",
+        "search_in": "పరిమితం చేయు",
+        "search_button": "వేదములలో శోధన",
+        "Results": "శోధన ఫలితములు"
+    },
+    "messages": {},
+    "errors": {},
+    "help": {
+        "helpMantraList": "How to use Veda Mantras Webpage",
+        "helpMantraListMsg": ""
+    }
+}

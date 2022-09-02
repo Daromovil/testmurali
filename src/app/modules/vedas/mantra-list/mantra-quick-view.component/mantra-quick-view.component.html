@@ -1,0 +1,27 @@
+<div class="container text-center pt-4" *ngIf="mantra">
+
+    <div class="p-2">
+        <span class="mantra-meta ">{{tr.labels?.devatha}}</span> - {{mantra.metadata?.devatha}}
+        &nbsp;&nbsp;
+        <span class="mantra-meta ">{{tr.labels?.rishi}}</span> - {{mantra.metadata?.rishi}}
+        &nbsp;&nbsp;
+        <span class="mantra-meta ">{{tr.labels?.chandas}}</span> - {{mantra.metadata?.chandas}}
+        &nbsp;&nbsp;
+        <span class="mantra-meta ">{{tr.labels?.swar}}</span> - {{mantra.metadata?.swar}}
+
+    </div>
+    <div class="p-2 mantra" [innerHTML]="mantra.mantra">
+
+    </div>
+
+    <div class="p-2">
+        <h6>
+            {{tr.labels.prathiPada}}
+        </h6>
+        <ul class="pt-6 list-inline">
+            <li class="list-inline-item" *ngFor="let padaArtha of mantra?.padaArtha; let index=index;">
+                <span class="px-2">{{padaArtha.pada}}</span>
+            </li>
+        </ul>
+    </div>
+</div>

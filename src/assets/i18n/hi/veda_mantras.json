@@ -1,0 +1,47 @@
+{
+    "menu": {
+        "title": "Vedas WIKI",
+        "home": "Home",
+        "vedas": "Vedas",
+        "applications": "APplications",
+        "courses": "Courses",
+        "projects": "Projects",
+        "signout": "Sign Out"
+    },
+    "headers": {
+        "veda": "वेदः",
+        "rigVeda": "ऋग्वेदः",
+        "yajurVeda": "Yajur-Veda",
+        "samaVeda": "Sama-Veda",
+        "adharvaVeda": "Athurva-Veda"
+    },
+    "labels": {
+        "totalMantras": "మొత్తం మంత్రాలు",
+        "select": "चिनोति",
+        "mandal": "मण्डलम्",
+        "sukta": "सूक्तम्",
+        "kanda": "Kanda",
+        "adhyaya": "Adhyaya",
+        "prapataka": "Prapataka",
+        "uttaraArchika": "Uttara-Archika",
+        "purvaArchia": "Purva-Archika",
+        "mantra": "मन्त्रम्",
+        "rishi": "ऋषिः",
+        "devatha": "देवता",
+        "swar": " स्वरः",
+        "chandas": "छन्दः",
+        "prathiPada": "पदविभागः",
+        "artha": "अर्ध",
+        "detailedArtha": "सविस्तर अर्ध",
+        "audio": "Audio",
+        "editMantra": "Edit Mantra",
+        "quickViewMantra": "Quick View",
+        "detailedViewMantra": "Detailed View"
+    },
+    "messages": {},
+    "errors": {},
+    "help": {
+        "helpMantraList": "How to use Veda Mantras Webpage",
+        "helpMantraListMsg": ""
+    }
+}

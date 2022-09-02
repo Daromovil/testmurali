@@ -1,0 +1,158 @@
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
+import { MantraService } from '../../../services/mantra.service';
+import { Mantra, Metadata } from '../../../models/mantra.model';
+import { Subscription } from 'rxjs/internal/Subscription';
+import { Audit } from 'src/app/models/shared.models';
+import { translate, RxTranslation } from '@rxweb/translate';
+
+@Component({
+  selector: 'app-mantra-edit',
+  templateUrl: './mantra-edit.page.html',
+  styleUrls: ['./mantra-edit.page.scss']
+})
+export class MantraEditPage implements OnInit, OnDestroy {
+  mantraEditSub$: Subscription;
+  form: FormGroup;
+  id: string;
+  isAddMode: boolean;
+  loading = false;
+  submitted = false;
+  mantra: Mantra;
+  constructor(
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute,
+    private router: Router,
+    private mantraService: MantraService
+  ) { }
+
+  deletePadaArtha(index: number) {
+    let padaArthas = this.form.get("padaArthas") as FormArray;
+    padaArthas.removeAt(index);
+
+  }
+  createPadaArtha(): FormGroup {
+    return this.formBuilder.group({
+      artha: '',
+      audioId: '',
+      displayOrder: '',
+      patha: '',
+      sourceIds: ''
+    });
+  }
+  addPathaArtha() {
+    let padaArthas = this.form.get("padaArthas") as FormArray;
+    padaArthas.push(this.createPadaArtha());
+  }
+  ngOnInit() {
+    this.id = this.route.snapshot.params['mantra-code'];
+    console.log(this.id);
+    this.isAddMode = !this.id;
+
+    this.form = this.formBuilder.group({
+      mantra: ['', Validators.required],
+      vedaName: ['', Validators.required],
+      code: [''],
+      summary: [''],
+      detailedArtha: [''],
+      seqNo: [''],
+      displayOrder: [''],
+      mandal: [''],
+      sukta: [''],
+      anuvaka: [''],
+      devatha: [''],
+      rishi: [''],
+      chandas: [''],
+      swar: [''],
+      padaArthas: this.formBuilder.array([this.createPadaArtha()])
+
+    });
+
+    if (this.isAddMode == false) {
+      this.mantraEditSub$ = this.mantraService.getMantra(this.id).subscribe((data: Mantra) => {
+        console.log(data);
+        this.form.get("mantra").patchValue(data.mantra);
+        this.form.get("vedaCode").patchValue(data.vedaCode);
+        this.form.get("code").patchValue(data.code);
+        this.form.get("summary").patchValue(data.summary);
+        this.form.get("detailedArtha").patchValue(data.detailedArtha);
+        this.form.get("seqNo").patchValue(data.seqNo);
+        this.form.get("mandal").patchValue(data.metadata.mandal);
+        this.form.get("anuvaka").patchValue(data.metadata.anuvaka);
+        this.form.get("chandas").patchValue(data.metadata.chandas);
+        this.form.get("devatha").patchValue(data.metadata.devatha);
+        this.form.get("rishi").patchValue(data.metadata.rishi);
+        this.form.get("sukta").patchValue(data.metadata.sukta);
+        this.form.get("swar").patchValue(data.metadata.swar);
+        this.form.get("padaArthas").patchValue(data.padaArtha);
+
+        //this.form.patchValue(data);
+        this.mantra = data;
+      })
+    } else {
+      this.mantra = new Mantra();
+      this.mantra.metadata = new Metadata();
+      this.mantra.audit = new Audit();
+    }
+
+  }
+
+  // convenience getter for easy access to form fields
+  get f() { return this.form.controls; }
+
+  onSubmit() {
+    this.submitted = true;
+    //
+    // stop here if form is invalid
+    //   if (this.form.invalid) {
+    //       return;
+    //   }
+
+    this.loading = true;
+    this.mantra.mantra = this.form.get("mantra").value;
+    this.mantra.vedaCode = this.form.get("vedaCode").value;
+    this.mantra.displayOrder = this.form.get("displayOrder").value;
+    this.mantra.code = this.form.get("code").value;
+    this.mantra.summary = this.form.get("summary").value;
+    this.mantra.detailedArtha = this.form.get("detailedArtha").value;
+    this.mantra.seqNo = this.form.get("seqNo").value;
+    this.mantra.metadata.mandal = this.form.get("mandal").value;
+    this.mantra.metadata.anuvaka = this.form.get("anuvaka").value;
+    this.mantra.metadata.chandas = this.form.get("chandas").value;
+    this.mantra.metadata.devatha = this.form.get("devatha").value;
+    this.mantra.metadata.rishi = this.form.get("rishi").value;
+    this.mantra.metadata.sukta = this.form.get("sukta").value;
+    this.mantra.metadata.swar = this.form.get("swar").value;
+    this.mantra.padaArtha = this.form.get("padaArthas").value;
+
+
+    if (this.isAddMode) {
+      this.createMantra();
+    } else {
+      this.updateMantra();
+    }
+  }
+
+  private createMantra() {
+    console.log('test add');
+    this.mantra.version = "1";
+    this.mantraService.createMantra(this.mantra).subscribe((data: Mantra) => {
+      this.router.navigate(['/mantras-list']);
+    })
+  }
+
+  private updateMantra() {
+    console.log('test update');
+    this.mantra.displayOrder = this.form.get("displayOrder").value;
+    this.mantraService.updateMantra(this.mantra).subscribe((data: Mantra) => {
+      this.router.navigate(['/mantras-list']);
+    })
+  }
+
+  ngOnDestroy(): void {
+    if (this.mantraEditSub$) {
+      this.mantraEditSub$.unsubscribe();
+    }
+  }
+}

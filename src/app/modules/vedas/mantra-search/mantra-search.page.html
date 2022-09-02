@@ -1,0 +1,97 @@
+<main id="main">
+
+    <h3 class="pb-4">{{tr.labels["search_button"]}}</h3>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-5">
+                <div class="mb-3">
+                    <label class="form-label" for="keyword">{{tr.labels.keyword}}:</label>
+                    <input class="form-control form-control-lg" id="keyword" type="text" placeholder="Keyword"
+                        maxlength="30" size="40" (change)="updateKeyword($event)" data-sb-validations="required" />
+                    <div>{{tr.labels.space_separated}}</div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label d-block">{{tr.labels.search_vedas}}:</label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" id="veda1" type="checkbox" name="veda" data-sb-validations=""
+                            (change)="updateRigVedaFilter($event)" checked />
+                        <label class="form-check-label" for="veda1">{{tr.headers.rigVeda}}</label>&nbsp;
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" id="veda2" type="checkbox" name="veda" data-sb-validations=""
+                            (change)="updateYajurVedaFilter($event)" checked />
+                        <label class="form-check-label" for="veda2">{{tr.headers.yajurVeda}}</label>&nbsp;
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" id="veda4" type="checkbox" name="athurvaVeda"
+                            data-sb-validations="" (change)="updateAthuraVedaFilter($event)" checked />
+                        <label class="form-check-label" for="veda4">{{tr.headers.adharvaVeda}}</label>&nbsp;
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" id="veda3" type="checkbox" name="samaVeda"
+                            data-sb-validations="" (change)="updateSamaVedaFilter($event)" checked />
+                        <label class="form-check-label" for="veda3">{{tr.headers.samaVeda}}</label>&nbsp;
+                    </div>
+
+                </div>
+                <div class="mb-3">
+                    <label class="form-label d-block">{{tr.labels.search_in}}:</label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" id="mantra" type="checkbox" name="filters"
+                            data-sb-validations="" (change)="updateMantraFilter($event)" checked />
+                        <label class="form-check-label" for="mantra">{{tr.labels.mantra}}</label>&nbsp;
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" id="artha" type="checkbox" name="filters" data-sb-validations=""
+                            (change)="updateArthaFilter($event)" checked />
+                        <label class="form-check-label" for="artha">{{tr.labels.artha}}</label>&nbsp;
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" id="rishi" type="checkbox" name="filters" data-sb-validations=""
+                            (change)="updateRishiFilter($event)" checked />
+                        <label class="form-check-label" for="rishi">{{tr.labels.rishi}}</label>&nbsp;
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" id="devatha" type="checkbox" name="filters"
+                            data-sb-validations="" (change)="updateDevathaFilter($event)" checked />
+                        <label class="form-check-label" for="devatha">{{tr.labels.devatha}}</label>&nbsp;
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" id="chandas" type="checkbox" name="filters"
+                            data-sb-validations="" (change)="updateChandasFilter($event)" checked />
+                        <label class="form-check-label" for="chandas">{{tr.labels.chandas}}</label>&nbsp;
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" id="swara" type="checkbox" name="filters" data-sb-validations=""
+                            (change)="updateSwaraFilter($event)" checked />
+                        <label class="form-check-label" for="swara">{{tr.labels.swar}}</label>&nbsp;
+                    </div>
+                </div>
+
+                <div class="text-danger">{{errorMsg}}</div>
+                <div class="d-grid">
+                    <button class="btn btn-primary btn-lg" id="submitButton"
+                        (click)="searchVedas($event)">{{tr.labels.search_button}}</button>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="rows">
+            <h5 class="pb-4 pt-4">{{tr.labels["results"]}}</h5>
+
+            <ul class="pt-6 list-inline">
+                <li class="list-inline-item text-center pt-4" *ngFor="let mantra of results?.results; let index=index;">
+                    <label class="font-weight-bolder text-decoration-underline">
+                        {{getMantraMetadata(mantra)}} - {{tr.labels?.mantra}}: {{index + 1}}</label><br />
+                    <app-mantra-quick-view [setMantra]="mantra"></app-mantra-quick-view>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+</main>

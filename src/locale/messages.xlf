@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="vedaName" datatype="html">
+        <source>                
+                Veda Name
+            </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/mantras/mantras-edit/mantras-edit.component copy.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="mandal" datatype="html">
+        <source>
+                Mandal 
+            </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/mantras/mantras-edit/mantras-edit.component copy.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sukta" datatype="html">
+        <source>
+                    Sukta 
+                </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/mantras/mantras-edit/mantras-edit.component copy.html</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="anuvaka" datatype="html">
+        <source>
+                    Anuvaka
+                </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/mantras/mantras-edit/mantras-edit.component copy.html</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="devata" datatype="html">
+        <source>
+                    Devata
+                </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/mantras/mantras-edit/mantras-edit.component copy.html</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="rushi" datatype="html">
+        <source>
+                    Rushi
+                </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/mantras/mantras-edit/mantras-edit.component copy.html</context>
+          <context context-type="linenumber">66</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="chandas" datatype="html">
+        <source>
+                    Chandas
+                </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/mantras/mantras-edit/mantras-edit.component copy.html</context>
+          <context context-type="linenumber">73</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="swara" datatype="html">
+        <source>
+                    Swara
+                </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/mantras/mantras-edit/mantras-edit.component copy.html</context>
+          <context context-type="linenumber">80</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="mantra" datatype="html">
+        <source>
+            Mantra
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/mantras/mantras-edit/mantras-edit.component copy.html</context>
+          <context context-type="linenumber">90</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

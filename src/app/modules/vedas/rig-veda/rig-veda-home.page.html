@@ -1,0 +1,131 @@
+<!-- ======= Sidebar ======= -->
+<aside id="sidebar" class="sidebar">
+
+    <i class="d-lg-none bi bi-arrow-right-circle toggle-sidebar-btn large-icon"
+        (click)="handleLeftMenuInternal()"></i>&nbsp;
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="/{{langCode}}/vedas/rig-veda">
+                <i class="bi bi-book"></i>
+                <span>{{tr.headers.rigVeda}}</span>
+            </a>
+        </li><!-- End Profile Page Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="/{{langCode}}/vedas/yajur-veda">
+                <i class="bi bi-book"></i>
+                <span>{{tr.headers.yajurYeda}</span>
+            </a>
+        </li><!-- End F.A.Q Page Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="/{{langCode}}/vedas/sama-veda">
+                <i class="bi bi-book"></i>
+                <span>{{tr.headers.samaYeda}</span>
+            </a>
+        </li><!-- End Contact Page Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="/{{langCode}}/vedas/athur-veda">
+                <i class="bi bi-book"></i>
+                <span>{{tr.headers.athuraVeda}}</span>
+            </a>
+        </li><!-- End Register Page Nav -->
+        <li class="nav-item" style="pointer-events: none">
+            <a class="nav-link collapsed" style="pointer-events: none" href="">
+                <i class="bi"></i>
+                <span></span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="/{{langCode}}/vedas/search">
+                <i class="bi bi-book"></i>
+                <span>Search in Vedas</span>
+            </a>
+        </li><!-- End Register Page Nav -->
+
+        <li class="nav-item" style="pointer-events: none">
+            <a class="nav-link collapsed" style="pointer-events: none" href="">
+                <i class="bi"></i>
+                <span></span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="">
+                <i class="bi bi-grid"></i>
+                <span>Our Philosophy</span>
+            </a>
+        </li><!-- End Login Page Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="">
+                <i class="bi bi-currency-dollar"></i>
+                <span>Doante for Cause</span>
+            </a>
+        </li><!-- End Error 404 Page Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="">
+                <i class="bi bi-info-circle"></i>
+                <span>Help?</span>
+            </a>
+        </li><!-- End Blank Page Nav -->
+
+    </ul>
+</aside><!-- End Sidebar-->
+
+<main id="main" class="main">
+
+    <i class="bi bi-arrow-left-circle toggle-sidebar-btn large-icon" (click)="handleLeftMenuInternal()"></i>&nbsp;Page
+    level Menu
+
+    <h3 class="pb-4">{{tr.headers["rigVeda"]}}</h3>
+    <p class="py-6">
+        Rig Vēda contains a total of 10,522 Mantras. Rig Vēda is called Gnana Kanda.
+        Rig Vēda contains knowledge about every matter that is present in the world including God and their properties.
+        Rig Vēda is divided into 10 Mandalas, 85 Anuvakas, 1028 Sukthas and contains 10,522 Mantras.
+    </p>
+    <p class="py-6">These Mantras have a Rishi name or several Rishis names - those who first realized the mantra
+        meaning, Devatha - the prominent meaning on which the mantra was given, Chanddass - type of Poem) and
+        Swara - Type of musical note which appoints the meaning to the mantra.
+    </p>
+
+    <p class="py-6">
+        &nbsp;
+    </p>
+
+    <p class="py-6">
+        You can click here to go the list of Rig-Veda mantras:
+        <a class="btn text-decoration-underline" (click)="goto(1, 1)">
+            {{tr.headers["rigVeda"]}} mantras
+        </a>
+        <br />
+        You can change the mandal and/or sukta from the mantra list page.
+    </p>
+    <p class="py-6">
+        Following are the list of {{tr.headers["rig-veda"]}} mandals. <br />
+        Suktas for each mandal are listed underneath each mandal. <br />
+        You can click the sukta links to go to the list of mantras in the selected mandal and sukta.
+    </p>
+    <div *ngIf="vedaCounts" class="pl-0">
+
+        <ul class="pt-2 pl-0">
+            <li class="list-item pt-5" *ngFor="let mandal of vedaCounts?.mandals; let mandalCount=index;">
+                <label class="font-weight-bold">
+                    {{tr.labels?.mandal}}: {{mandalCount + 1}}</label>
+
+                <ul class="pt-6 list-inline">
+                    <li class="list-inline-item text-center pt-4 pr-4"
+                        *ngFor="let sukta of getSuktaCounter(mandal.suktaCount); let suktaCount = index">
+                        <a class="btn font-weight-bolder text-decoration-underline"
+                            (click)="goto(mandalCount + 1, suktaCount + 1)">
+                            {{tr.labels?.sukta}}: {{suktaCount + 1}}</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+</main>

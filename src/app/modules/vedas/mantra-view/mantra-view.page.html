@@ -1,0 +1,274 @@
+<div *ngIf="mantra">
+    <div class="hidden sm:visible p-5 flex flex-column xl:border-b border-gray-300 text-lg bg-gray-900 text-white">
+        <div class="w-1/5  text-center">
+            <a href="#" class="hover:underline cursor-pointer text-white">
+                << </a>
+        </div>
+        <div class="w-3/5 text-center xl:border-l xl:border-r">
+
+            <label>Mantra: {{mantra.code}}</label>
+        </div>
+        <div class="w-1/5 text-center">
+            <a href="#" class="hover:underline cursor-pointer text-white"> >> </a>
+        </div>
+    </div>
+
+    <div id="mantra" class="flex pt-32 border-b border-gray-300">
+        <div class="md:w-1/3">
+            <div class="text-center pt-5 pb-5 border-r border-gray-300">
+                <div class="pt-2">
+                    Veda - {{mantra.vedaCode}}
+                </div>
+                <div class="pt-2">
+                    Mandal - {{mantra.metadata?.mandal}}
+                </div>
+                <div class="pt-2">
+                    Sukta - {{mantra.metadata?.sukta}}
+                </div>
+                <div class="pt-2">
+                    Devata - {{mantra.metadata?.devatha}}
+                </div>
+                <div class="pt-2">
+                    Rishi - {{mantra.metadata?.rishi}}
+                </div>
+                <div class="pt-2">
+                    Chadas - {{mantra.metadata?.chandas}}
+                </div>
+                <div class="pt-2">
+                    Swar - {{mantra.metadata?.swar}}
+                </div>
+            </div>
+        </div>
+        <div class="md:w-2/3 pt-10 leading-10 text-center align-text-middle text-2xl text-red-600">
+            <div class="pt-5">
+                {{mantra.mantraOriginal}}
+            </div>
+
+            <div class="pt-5">
+                {{mantra.mantra}}
+            </div>
+        </div>
+    </div>
+
+    <div class="px-6">
+
+        <div class="justify-between container px-6 h-16 flex items-center lg:items-stretch mx-auto xl:border-b">
+            <div class="flex items-center">
+                <ul class="xl:flex items-center text-center h-full">
+                    <li
+                        class="hover:underline cursor-pointer h-full flex items-center text-indigo-600 mr-10 tracking-normal">
+                        <a href="#wordbyword">प्रतिपदार्ध <br /> (Word-by-Word)</a>
+                    </li>
+                    <li
+                        class="hover:underline cursor-pointer h-full flex items-center text-indigo-600 mr-10 tracking-normal">
+                        <a href="#meaning">अर्ध <br />(Meaning)</a>
+                    </li>
+                    <li
+                        class="hover:underline cursor-pointer h-full flex items-center text-indigo-600 mr-10 tracking-normal">
+                        <a href="#detailed">सविस्तर <br />(Detailed)</a>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="h-full xl:flex hidden items-center justify-end pr-10">
+                <div class="h-full flex items-center">
+                    <div class="w-full h-full flex">
+
+                        <div class="w-16 xl:w-48 h-full flex items-center justify-center xl:border-l cursor-pointer">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-volume"
+                                width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50"
+                                fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <title>Audio</title>
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M15 8a5 5 0 0 1 0 8" />
+                                <path d="M17.7 5a9 9 0 0 1 0 14" />
+                                <path
+                                    d="M6 15h-2a1 1 0 0 1 -1 -1v-4a1 1 0 0 1 1 -1h2l3.5 -4.5a0.8 .8 0 0 1 1.5 .5v14a0.8 .8 0 0 1 -1.5 .5l-3.5 -4.5" />
+                            </svg>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-bookmark"
+                                width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50"
+                                fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <title>Bookmark</title>
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M9 4h6a2 2 0 0 1 2 2v14l-5 -3l-5 3v-14a2 2 0 0 1 2 -2" />
+                            </svg>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-bulb" width="32"
+                                height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <title>Enlightenment</title>
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M3 12h1m8 -9v1m8 8h1m-15.4 -6.4l.7 .7m12.1 -.7l-.7 .7" />
+                                <path d="M9 16a5 5 0 1 1 6 0a3.5 3.5 0 0 0 -1 3a2 2 0 0 1 -4 0a3.5 3.5 0 0 0 -1 -3" />
+                                <line x1="9.7" y1="17" x2="14.3" y2="17" />
+                            </svg>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-star" width="32"
+                                height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <title>Favorite</title>
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path
+                                    d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
+                            </svg>
+                        </div>
+
+                        <div class="w-16 xl:w-48 h-full flex items-center justify-center xl:border-l cursor-pointer">
+                            <input type="checkbox" for="sticky" class="text-indigo-600 h-6 w-6" /> &nbsp;&nbsp;
+                            <span id="sticky">Sticky Header</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="mx-auto px-6 pt-10">
+        <div class="p-5 pt-0">
+            <div id="wordbyword" class="flex items-center">
+                <div data-menu class="flex flex-1 cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" aria-label="Hide"
+                        class="hidden icon icon-tabler icon-tabler-chevron-up" width="28" height="28"
+                        viewBox="0 0 24 24" stroke-width="1.5" stroke="#718096" fill="none" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" />
+                        <polyline points="6 15 12 9 18 15" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" aria-label="Show"
+                        class="icon icon-tabler icon-tabler-chevron-down" width="28" height="28" viewBox="0 0 24 24"
+                        stroke-width="1.5" stroke="#718096" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z"></path>
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                    <h1 class="text-lg text-indigo-600 font-semibold ml-3">
+                        प्रतिपदार्ध (Word-by-Word Meaning)
+                    </h1>
+                </div>
+                <div class="cursor-pointer flex-fill float-right pl-5 pr-5">
+                    <a href="#mantra">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-up-circle"
+                            width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <title>Back to Mantra</title>
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <circle cx="12" cy="12" r="9" />
+                            <line x1="12" y1="8" x2="8" y2="12" />
+                            <line x1="12" y1="8" x2="12" y2="16" />
+                            <line x1="16" y1="12" x2="12" y2="8" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <ul class="pt-6">
+                <li class="md:flex justify-between items-center pt-2  pb-5 border-b border-gray-300 hover:bg-gray-200"
+                    *ngFor="let padaArtha of mantra.padaArtha; let index=index;">
+                    <div class="flex items-center text-gray-400 w-full md:w-1/2">
+                        <a href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-volume"
+                                width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50"
+                                fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <title>Audio</title>
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M15 8a5 5 0 0 1 0 8" />
+                                <path d="M17.7 5a9 9 0 0 1 0 14" />
+                                <path
+                                    d="M6 15h-2a1 1 0 0 1 -1 -1v-4a1 1 0 0 1 1 -1h2l3.5 -4.5a0.8 .8 0 0 1 1.5 .5v14a0.8 .8 0 0 1 -1.5 .5l-3.5 -4.5" />
+                            </svg>
+                        </a>
+                        <p class="pl-5 text-gray-600 font-semibold">
+                            <span class="w-25 text-xl text-red-600">{{padaArtha.padha}}</span> -
+                            {{padaArtha.artha}}
+                        </p>
+                    </div>
+                    <div class="md:flex items-center md:w-1/2 w-full justify-end text-gray-700">
+                        <p class="text-yellow-600 mt-4 md:mt-0 mr-10">
+                            Sources:
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div id="meaning" class="p-5">
+            <div class="flex items-center">
+                <div data-menu class="flex flex-1 cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" aria-label="Hide"
+                        class="hidden icon icon-tabler icon-tabler-chevron-up" width="28" height="28"
+                        viewBox="0 0 24 24" stroke-width="1.5" stroke="#718096" fill="none" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" />
+                        <polyline points="6 15 12 9 18 15" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" aria-label="Show"
+                        class="icon icon-tabler icon-tabler-chevron-down" width="28" height="28" viewBox="0 0 24 24"
+                        stroke-width="1.5" stroke="#718096" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z"></path>
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                    <h1 class="text-lg text-indigo-600 font-semibold ml-3">अर्ध (Meaning)</h1>
+                </div>
+
+                <div class="cursor-pointer flex-fill float-right pl-5 pr-5">
+                    <a href="#mantra">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-up-circle"
+                            width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <title>Back to Mantra</title>
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <circle cx="12" cy="12" r="9" />
+                            <line x1="12" y1="8" x2="8" y2="12" />
+                            <line x1="12" y1="8" x2="12" y2="16" />
+                            <line x1="16" y1="12" x2="12" y2="8" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div>{{mantra.artha}}</div>
+        </div>
+
+
+        <div id="detailed" class="p-5">
+            <div class="flex items-center">
+                <div data-menu class="flex flex-1 cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" aria-label="Hide"
+                        class="hidden icon icon-tabler icon-tabler-chevron-up" width="28" height="28"
+                        viewBox="0 0 24 24" stroke-width="1.5" stroke="#718096" fill="none" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" />
+                        <polyline points="6 15 12 9 18 15" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" aria-label="Show"
+                        class="icon icon-tabler icon-tabler-chevron-down" width="28" height="28" viewBox="0 0 24 24"
+                        stroke-width="1.5" stroke="#718096" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z"></path>
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                    <h1 class="text-lg text-indigo-600 font-semibold ml-3">सविस्तर अर्ध (Detailed Meaning)</h1>
+                </div>
+
+                <div data-menu class="cursor-pointer flex-fill float-right pl-5 pr-5">
+                    <a href="#mantra">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-up-circle"
+                            width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <title>Back to Mantra</title>
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <circle cx="12" cy="12" r="9" />
+                            <line x1="12" y1="8" x2="8" y2="12" />
+                            <line x1="12" y1="8" x2="12" y2="16" />
+                            <line x1="16" y1="12" x2="12" y2="8" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div>{{mantra.detailedArtha}}</div>
+
+        </div>
+    </div>
+</div>

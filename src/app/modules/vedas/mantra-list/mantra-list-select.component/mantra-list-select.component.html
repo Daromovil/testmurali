@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="pt-2">
+    <br />
+    <div class="text-right d-lg-none"><i id="left-nav-id"
+        class="bi bi-x-circle toggle-sidebar-btn large-icon text-right" (click)="handleLeftMenuInternal()">
+      </i>
+    </div>
+    <label class="font-bold">{{filterOneLabel}}</label>
+    <div class="pr-2 pt-2">
+      <select class="form-select" [(ngModel)]="filter1Val" (change)="changeFilterOne($event)">
+        <option *ngFor="let i of filter1" [value]="i.value">{{i.text}}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="p2 pt-2">
+    <label class="font-bold">{{filterTwoLabel}}</label>
+    <div class="pr-2 pt-2">
+      <select class="form-select" [(ngModel)]="filter2Val" (change)="changeFilterTwo($event)">
+        <option *ngFor="let i of filter2" [value]="i.value">{{i.text}}</option>
+      </select>
+    </div>
+  </div>
+
+
+  <div class="p2 pt-2">
+    <label class="font-bold">{{filterThreeLabel}}</label>
+    <div class="container">
+      <div class="row row-cols-3">
+        <div class="col" *ngFor="let i of filter3">
+          <button class="btn btn-link" [ngClass]="i.value == filter3Val ? 'btn-link-selected' : ''" type="button"
+            (click)="clickSukta($event)" [value]="i.value">
+            {{ pad(i.text,2)}}
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

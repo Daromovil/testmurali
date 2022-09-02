@@ -1,0 +1,54 @@
+{
+    "menu": {
+        "title": "Vedas WIKI",
+        "home": "Home",
+        "vedas": "Vedas",
+        "applications": "Applications",
+        "courses": "Courses",
+        "projects": "Projects",
+        "signout": "Sign Out"
+    },
+    "headers": {
+        "veda": "వేదము",
+        "rigVeda": "ఋగ్వేదం",
+        "yajurVeda": "యజుర్వేదం",
+        "samaVeda": "సామ వేదం",
+        "adharvaVeda": "అథర్వ వేదం"
+    },
+    "labels": {
+        "totalMantras": "మొత్తం మంత్రాలు",
+        "select": "ఎంచుకోండి",
+        "mandal": "మణ్డలమ్",
+        "sukta": "సూక్తమ్",
+        "kanda": "కాండ",
+        "adhyaya": "అధ్యాయ",
+        "prapataka": "ప్రపటక",
+        "uttaraArchika": "ఉత్తరార్చిక",
+        "purvaArchika": "పూర్వార్చిక",
+        "mantra": "మన్త్రమ్",
+        "rishi": "ఋషిః",
+        "devatha": "దేవతా",
+        "swar": "స్వరః",
+        "chandas": "ఛన్దః",
+        "prathiPada": "పదవిభాగః",
+        "artha": "అర్థము",
+        "detailedArtha": "Detailed Meaning",
+        "audio": "ఆడియో",
+        "editMantra": "Edit Mantra",
+        "quickViewMantra": "Quick View",
+        "detailedViewMantra": "Detailed View",
+        "search": "శోధన",
+        "keyword": "పదము(లు)",
+        "search_vedas": "వేదము(లు)",
+        "space_separated": "పదముల మధ్యలో ఖాళీ ఉంచుడు",
+        "search_in": "పరిమితం చేయండి",
+        "search_button": "వేదములలో శోధన",
+        "results": "శోధన ఫలితములు"
+    },
+    "messages": {},
+    "errors": {},
+    "help": {
+        "helpMantraList": "How to use Veda Mantras Webpage",
+        "helpMantraListMsg": ""
+    }
+}

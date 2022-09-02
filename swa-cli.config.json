@@ -1,0 +1,12 @@
+{
+  "$schema": "https://aka.ms/azure/static-web-apps-cli/schema",
+  "configurations": {
+    "vedic-wiki-web": {
+      "appLocation": ".",
+      "outputLocation": "dist\\vedaswikiweb",
+      "appBuildCommand": "npm run build --prod",
+      "run": "npm start",
+      "appDevserverUrl": "http://localhost:4200"
+    }
+  }
+}

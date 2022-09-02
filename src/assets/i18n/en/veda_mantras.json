@@ -1,0 +1,53 @@
+{
+    "menu": {
+        "title": "Vedas WIKI",
+        "home": "Home",
+        "vedas": "Vedas",
+        "applications": "Applications",
+        "courses": "Courses",
+        "projects": "Projects",
+        "signout": "Sign Out"
+    },
+    "headers": {
+        "veda": "Veda",
+        "rigVeda": "Rig-Veda",
+        "yajurVeda": "Yajur-Veda",
+        "samaVeda": "Sama-Veda",
+        "adharvaVeda": "Athurva-Veda"
+    },
+    "labels": {
+        "totalMantras": "Total Mantras",
+        "select": "Select",
+        "mandal": "Mandal",
+        "sukta": "Sukta",
+        "kanda": "Kanda",
+        "adhyaya": "Adhyaya",
+        "prapataka": "Prapataka",
+        "uttaraArchika": "Uttara-Archika",
+        "purvaArchia": "Purva-Archika",
+        "mantra": "Mantra",
+        "rishi": "Rishi",
+        "devatha": "Devata",
+        "swar": "Swar",
+        "chandas": "Chandas",
+        "prathiPada": "Word-By-Word",
+        "artha": "Meaning",
+        "detailedArtha": "Detailed Meaning",
+        "audio": "Audio",
+        "editMantra": "Edit Mantra",
+        "quickViewMantra": "Quick View",
+        "detailedViewMantra": "Detailed View",
+        "search": "Search in Vedas",
+        "keyword": "Keyword(s)",
+        "space_separated": "Space Separated between the words",
+        "search_in": "Filter(s)",
+        "search_button": "Search Now",
+        "Results": "Search Results"
+    },
+    "messages": {},
+    "errors": {},
+    "help": {
+        "helpMantraList": "How to use Veda Mantras Webpage",
+        "helpMantraListMsg": ""
+    }
+}

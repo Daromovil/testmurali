@@ -1,0 +1,16 @@
+<!-- ======= Sidebar ======= -->
+<aside id="sidebar" class="sidebar">
+  <ul class="sidebar-nav" id="sidebar-nav">
+    <li class="nav-item">
+      <app-mantra-list-select [vedaCode]="vedaCode" [mandalCode]="selectedMandal" [suktaCode]="selectedSukta"
+        (mandalSelected)='triggerMandalSelected($event)' (suktaSelected)='triggerSuktaSelected($event)'>
+      </app-mantra-list-select>
+    </li><!-- End Profile Page Nav -->
+  </ul>
+</aside><!-- End Sidebar-->
+<main id="main" class="main">
+
+  <app-mantra-list-display [vedaCode]="vedaCode" [vedaLabel]="vedaLabel" [mandal]="selectedMandal"
+    [sukta]="selectedSukta" (mantraSelected)='triggerMantraSelected($event)'>
+  </app-mantra-list-display>
+</main>

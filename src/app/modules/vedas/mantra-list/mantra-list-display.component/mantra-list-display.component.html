@@ -1,0 +1,76 @@
+<div class="container">
+    <div class="pb-2  d-lg-none">
+        <i class="bi bi-arrow-left-circle toggle-sidebar-btn large-icon" (click)="handleLeftMenuInternal()">
+            <small>&nbsp;Show Selection Panel</small></i>&nbsp;
+    </div>
+    <div>
+        <label *ngIf="results?.totalRows > 0" class="font-bold pb-4">{{tr.headers[_vedaLabel]}} &gt;
+            {{tr.labels?.mandal}}: {{_selectedMandal}} &gt;
+            {{tr.labels?.sukta}}: {{_selectedSukta}} &gt;
+            {{tr.labels?.totalMantras}}: {{results?.totalRows}}
+
+
+        </label>
+    </div>
+    <!--
+<div class="float-right">
+   
+    <a routerLink="/vedas/{{_vedaCode}}/mantras/new" title="New Mantra"
+        class="mt-2 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-square-plus" width="24" height="24"
+            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <rect x="4" y="4" width="16" height="16" rx="2" />
+            <line x1="9" y1="12" x2="15" y2="12" />
+            <line x1="12" y1="9" x2="12" y2="15" />
+        </svg> &nbsp;&nbsp;
+        <span>New Mantra</span>
+    </a>
+    
+</div>
+-->
+
+    <div *ngIf="mantra" class="row bg-light">
+        <div class="col-12 text-center">
+            <button *ngIf="showPrevious && listDisplay == false" class="btn btn-link p-0 m-0" type="button"
+                title="Previous Mantra" (click)="goToPrevious()">
+                <i class="bi bi-arrow-left-circle large-icon"></i></button>&nbsp;
+            <input id="txtMantra" name="txtMantra" type="text" class="text-center" style="width:50px;"
+                *ngIf=" listDisplay == false" [(ngModel)]="mantraNo" min="1" max="999" (change)="goToMantra($event)"
+                oninput="this.value|=0" maxlength="3">&nbsp;
+            <span *ngIf="listDisplay == false">of {{results?.totalRows}} &nbsp;</span>
+            <button *ngIf="showNext  && listDisplay == false" class="btn btn-link p-0 m-0" type="button"
+                title="Next Mantra" (click)="goToNext()">
+                <i class="bi bi-arrow-right-circle large-icon"></i>
+            </button>&nbsp;
+            <button class="btn btn-link p-0 m-0" type="button" (click)="toggleList($event)">
+                <i class="bi bi-list-ol large-icon" *ngIf="listDisplay == false" title="Toggle to List View"></i>
+                <i class="bi bi-file-binary large-icon" *ngIf="listDisplay == true"
+                    title="Toggle to One Mantra at-a-time View"></i>
+            </button>&nbsp;
+
+            <button class="btn btn-link p-0 m-0 float-right" type="button" title="Bookmark this URL"
+                (click)="bookmark($event)">
+                <i class="bi bi-bookmark-star large-icon"></i> </button>&nbsp;
+            <button class="btn btn-link p-0 m-0 float-right" type="button" title="Audio" (click)="audio($event)">
+                <i class="bi bi-volume-up large-icon"></i> </button>&nbsp;
+
+        </div>
+    </div>
+
+    <div class="text-center pt-6 pb-6" *ngIf="listDisplay == false && mantra">
+        <label
+            class="font-weight-bolder text-decoration-underline pt-4">{{tr.labels?.mantra}}:{{mantraNo}}</label><br />
+        <app-mantra-quick-view [setMantra]="mantra"></app-mantra-quick-view>
+    </div>
+
+    <ul class="pt-6 list-inline" *ngIf="listDisplay == true">
+        <li class="list-inline-item text-center pt-4" *ngFor="let mantra of results?.results; let index=index;">
+            <label class="font-weight-bolder text-decoration-underline">
+                {{tr.labels?.mantra}}: {{index + 1}}</label><br />
+            <app-mantra-quick-view [setMantra]="mantra"></app-mantra-quick-view>
+        </li>
+    </ul>
+
+</div>
